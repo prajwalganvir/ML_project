@@ -3,64 +3,273 @@
   <head>
     <title>Medical Costs Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            font-family: "Inter", sans-serif;
+          }
+          .formbold-main-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px;
+          }
+        
+          .formbold-form-wrapper {
+            margin: 0 auto;
+            max-width: 550px;
+            width: 100%;
+            background: white;
+          }
+        
+          .formbold-input-flex {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 22px;
+          }
+          .formbold-input-flex > div {
+            width: 50%;
+            display: flex;
+            flex-direction: column-reverse;
+          }
+          .formbold-textarea {
+            display: flex;
+            flex-direction: column-reverse;
+          }
+        
+          .formbold-form-input {
+            width: 100%;
+            padding-bottom: 10px;
+            border: none;
+            border-bottom: 1px solid #DDE3EC;
+            background: #FFFFFF;
+            font-weight: 500;
+            font-size: 16px;
+            color: #07074D;
+            outline: none;
+            resize: none;
+          }
+          .formbold-form-input::placeholder {
+            color: #536387;
+          }
+          .formbold-form-input:focus {
+            border-color: #6A64F1;
+          }
+          .formbold-form-label {
+            color: #07074D;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            display: block;
+            margin-bottom: 18px;
+          }
+          .formbold-form-input:focus + .formbold-form-label {
+            color: #6A64F1;
+          }
+        
+          .formbold-input-file {
+            margin-top: 30px;
+          }
+          .formbold-input-file input[type="file"] {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            z-index: -1;
+          }
+          .formbold-input-file .formbold-input-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+          }
+        
+          .formbold-filename-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 22px;
+          }
+          .formbold-filename {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            line-height: 24px;
+            color: #536387;
+          }
+          .formbold-filename svg {
+            cursor: pointer;
+          }
+        
+          .formbold-btn {
+            font-size: 16px;
+            border-radius: 5px;
+            padding: 12px 25px;
+            border: none;
+            font-weight: 500;
+            background-color: #6A64F1;
+            color: white;
+            cursor: pointer;
+            margin-top: 25px;
+          }
+          .formbold-btn:hover {
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+          }
+          .form-group {
+            margin-bottom: 15px;
+        }
+        
+        /* Style the label text */
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        /* Add styles to the select elements */
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        /* Hover effect for the select fields */
+        .form-control:hover {
+            border-color: #888;
+            background-color: #fff;
+        }
+        
+        /* Add styling to the select options */
+        .form-control option {
+            padding: 10px;
+            color: #333;
+        }
+        
+        /* Container styling for better layout */
+        .row {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #topper{
+            background-color: red;
+            margin: auto;
+        }
+    </style>
   </head>
   <body>
-    <a href="https://github.com/NvkAnirudh/Medical_Cost_Prediction" class="top-left-link" target="_blank">GitHub Repository Link</a>
-    <h1>Medical Costs Prediction - Prajwal Ganvir</h1>
-    <img src="{{url_for('static', filename='/Image/medical.jpeg')}}" alt="Your Profile Picture" class="profile">
+    <br>
+    <div id="topper">
+    <h1 style="text-align: center;">Medical Costs Prediction - Prajwal Ganvir</h1>
+    <h6 style="text-align: center;"> <a href="Https://github.com/prajwalganvir" class="top-left-link" target="_blank" >GitHub Repository Link</a></h6>
+</div>
+   
     <div class="form-box">
-    <form action="{{url_for('predict_data')}}" method="POST">
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="text" id="age" name="age" placeholder="Enter your age">
-        </div>
     
-        <div class="form-group">
-            <label for="children">Children:</label>
-            <input type="text" id="children" name="children" placeholder="Enter your number of children">
-        </div>
 
-        <div class="form-group">  
-            <label for="bmi">Body Mass Index(BMI):</label>
-            <input type="text" id="bmi" name="bmi" placeholder="Enter your BMI value (float)">
+
+   
+        
+
+        <div class="formbold-main-wrapper">
+            <div class="col-md-6">
+                <div class="formbold-form-wrapper">
+                    <form action="{{url_for('predict_data')}}" method="POST">
+                        <div class="form-group">
+                            <div>
+                                <label for="age" class="formbold-form-label">Age</label>
+                                <input type="text" name="age" id="age" placeholder="Enter your age" class="formbold-form-input" />
+                            </div>
+                            <div>
+                                <label for="children" class="formbold-form-label">Children</label>
+                                <input type="text" name="children" id="children" placeholder="Enter your number of children" class="formbold-form-input" />
+                            </div>
+                            <div>
+                                <label for="bmi" class="formbold-form-label">Body Mass Index (BMI)</label>
+                                <input type="text" name="bmi" id="bmi" placeholder="Enter your BMI value (float)" class="formbold-form-input" />
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sex">Sex?</label>
+                                    <select id="sex" name="sex" class="form-control">
+                                        <option value="">Select Your Option</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="smoker">Smoker?</label>
+                                    <select id="smoker" name="smoker" class="form-control">
+                                        <option value="">Select Your Option</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="region">Region?</label>
+                                    <select id="region" name="region" class="form-control">
+                                        <option value="">Select Your Option</option>
+                                        <option value="northeast">Northeast</option>
+                                        <option value="northwest">Northwest</option>
+                                        <option value="southeast">Southeast</option>
+                                        <option value="southwest">Southwest</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <center><button type="submit" class="btn btn-primary" >Submit</button></center>
+                    </form>
+                </div>
+            </div>
         </div>
+        <h2>
+            Predicted Medical Cost is : ${{ results }}
+          </h2>
+       
+        
+        </div>
+      </div>
       
-    <div class="form-group">
-      <label for="sex">Sex?</label>
-      <select id="sex" name="sex">
-        <option value="">Select Your Option</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-    </div>
-      
-    <div class="form-group">
-      <label for="smoker">Smoker?</label>
-      <select id="smoker" name="smoker">
-        <option value="">Select Your Option</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </div>
-    
-    <div class="form-group">
-      <label for="region">Region?</label>
-      <select id="region" name="region">
-        <option value="">Select Your Option</option>
-        <option value="northeast">Northeast</option>
-        <option value="northwest">Northwest</option>
-        <option value="southeast">Southeast</option>
-        <option value="southwest">Southwest</option>
-      </select>
-    </div>
-    
-    <div style="clear:both;"></div>
-      <input type="submit" value="Submit">
-    </form>
+       
+        <script>
+            
+            // JavaScript to show a message based on dropdown selection
+    document.querySelectorAll('.form-control').forEach((dropdown) => {
+        dropdown.addEventListener('change', function() {
+            if (this.value) {
+                alert(`You selected ${this.options[this.selectedIndex].text} for ${this.name}`);
+            }
+        });
+    });
+        </script>
+        
     </div>
     <div>      
-    <h2>
-      Predicted Medical Cost is : ${{ results }}
-    </h2>
+    
   </body>
+  <script>
+    // Example: Disable certain options based on another selection
+    
+  </script>
 </html>
