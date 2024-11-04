@@ -23,7 +23,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Started data ingestion component")
         try:
-            df = pd.read_csv("notebook/data/insurance.csv")  
+            df = pd.read_csv("notebooks\data\insurance.csv")  
 
             logging.info("Read the required data as pandas dataframe")
 
